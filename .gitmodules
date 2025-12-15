@@ -1,0 +1,12 @@
+[submodule "ESP32-S3"]
+	path = ESP32-S3
+	url = https://github.com/yangzhiyong3508/ESP32-S3.git
+[submodule "SpringBoot"]
+	path = SpringBoot
+	url = https://github.com/yangzhiyong3508/SpringBoot.git
+[submodule "Application"]
+	path = Application
+	url = https://github.com/yangzhiyong3508/Application.git
+[submodule "DeepLearning"]
+	path = DeepLearning
+	url = https://github.com/yangzhiyong3508/DeepLearning.git
