@@ -89,12 +89,11 @@ git push origin main
 
 ---
 
-## 🔒 安全提示
+## ⚙️ 配置模板
 
-- ⛔ **不要提交密钥**（各仓已配置 `.gitignore`）
-- 🔑 后端模板：`SpringBoot/config/application-secrets.example.yaml`
-- 📡 固件模板：`Docker_Edog/include/edog_config.local.example.h`
-- 📦 模型权重 `.pt` 不入库，见 `DeepLearning/weights/README.md`
+- 后端：`SpringBoot/config/application-secrets.example.yaml`
+- 固件：`Docker_Edog/include/edog_config.local.example.h`
+- 视觉权重说明：`DeepLearning/weights/README.md`
 
 ---
 
