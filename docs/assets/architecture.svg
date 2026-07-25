@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="420" viewBox="0 0 920 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0B1220"/>
+      <stop offset="100%" stop-color="#132238"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1B2B45"/>
+      <stop offset="100%" stop-color="#152338"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="920" height="420" rx="24" fill="url(#bg)"/>
+  <text x="40" y="48" fill="#E8F1FF" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="22" font-weight="700">EDOG System Architecture</text>
+  <text x="40" y="74" fill="#8FA6C6" font-family="Segoe UI, Microsoft YaHei, sans-serif" font-size="13">HarmonyOS · Spring Boot · Vision · ESP32-CAM · Tongxiao RK2206</text>
+
+  <!-- boxes -->
+  <g filter="url(#shadow)" font-family="Segoe UI, Microsoft YaHei, sans-serif">
+    <rect x="40" y="110" width="160" height="90" rx="16" fill="url(#card)" stroke="#3D7BFF"/>
+    <text x="120" y="148" text-anchor="middle" fill="#7EB6FF" font-size="13">📱 App</text>
+    <text x="120" y="172" text-anchor="middle" fill="#E8F1FF" font-size="15" font-weight="700">HarmonyOS</text>
+    <text x="120" y="192" text-anchor="middle" fill="#8FA6C6" font-size="11">遥控 · 陪伴 · 调参</text>
+
+    <rect x="260" y="110" width="180" height="90" rx="16" fill="url(#card)" stroke="#1BBF7A"/>
+    <text x="350" y="148" text-anchor="middle" fill="#6EE7B0" font-size="13">☁️ Backend</text>
+    <text x="350" y="172" text-anchor="middle" fill="#E8F1FF" font-size="15" font-weight="700">Spring Boot</text>
+    <text x="350" y="192" text-anchor="middle" fill="#8FA6C6" font-size="11">语音 · IoTDA · 扣子</text>
+
+    <rect x="500" y="110" width="170" height="90" rx="16" fill="url(#card)" stroke="#FF9F2E"/>
+    <text x="585" y="148" text-anchor="middle" fill="#FFC16B" font-size="13">🧠 Vision</text>
+    <text x="585" y="172" text-anchor="middle" fill="#E8F1FF" font-size="15" font-weight="700">YOLO+DeepSORT</text>
+    <text x="585" y="192" text-anchor="middle" fill="#8FA6C6" font-size="11">检测 · 跟踪 · 跟随</text>
+
+    <rect x="720" y="110" width="160" height="90" rx="16" fill="url(#card)" stroke="#D978B8"/>
+    <text x="800" y="148" text-anchor="middle" fill="#F0A8D8" font-size="13">📷 Camera</text>
+    <text x="800" y="172" text-anchor="middle" fill="#E8F1FF" font-size="15" font-weight="700">ESP32-CAM</text>
+    <text x="800" y="192" text-anchor="middle" fill="#8FA6C6" font-size="11">OV3660 图传</text>
+
+    <rect x="300" y="280" width="320" height="100" rx="18" fill="url(#card)" stroke="#27B5FF"/>
+    <text x="460" y="320" text-anchor="middle" fill="#7DD3FC" font-size="13">🐕 Dog Firmware</text>
+    <text x="460" y="346" text-anchor="middle" fill="#E8F1FF" font-size="16" font-weight="700">通晓 RK2206 · edog_project</text>
+    <text x="460" y="368" text-anchor="middle" fill="#8FA6C6" font-size="11">12DOF 步态 · MQTT · 运行时调参</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#5B7C9E" stroke-width="2" fill="none" marker-end="url(#arrow)">
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+        <path d="M0,0 L6,3 L0,6 Z" fill="#5B7C9E"/>
+      </marker>
+    </defs>
+    <path d="M200,155 H255"/>
+    <path d="M440,155 H495"/>
+    <path d="M670,155 H715"/>
+    <path d="M350,200 V255 H460 V280"/>
+    <path d="M585,200 V240 H460"/>
+    <path d="M800,200 V255 H520"/>
+  </g>
+</svg>

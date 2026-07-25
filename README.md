@@ -1,43 +1,84 @@
-﻿# EDOG powered by RK2206
+﻿<div align="center">
 
-智能四足机器人毕设总仓库（**软通动力通晓开发板 RK2206** + OpenHarmony LiteOS + HarmonyOS App + Spring Boot + 视觉跟随）。
+# 🐕 EDOG powered by RK2206
 
-## 系统架构
+**软通动力通晓开发板（RK2206）** · OpenHarmony LiteOS · HarmonyOS · 视觉跟随
 
+[![Main](https://img.shields.io/badge/Monorepo-Edog__powered__by__rk2206-1F8BFF?style=for-the-badge)](https://github.com/yangzhiyong3508/Edog_powered_by_rk2206)
+[![Board](https://img.shields.io/badge/Board-通晓%20RK2206-0ea5e9?style=for-the-badge)](https://github.com/yangzhiyong3508/edog_project_docker)
+[![License](https://img.shields.io/badge/Thesis-Graduation%20Project-8b5cf6?style=for-the-badge)](https://github.com/yangzhiyong3508/Edog_powered_by_rk2206)
+
+<p>
+  <a href="https://github.com/yangzhiyong3508/Application"><img src="https://img.shields.io/badge/App-HarmonyOS-red?logo=harmonyos&logoColor=white" alt="App"></a>
+  <a href="https://github.com/yangzhiyong3508/SpringBoot"><img src="https://img.shields.io/badge/Backend-Spring%20Boot-6DB33F?logo=springboot&logoColor=white" alt="Backend"></a>
+  <a href="https://github.com/yangzhiyong3508/DeepLearning"><img src="https://img.shields.io/badge/Vision-YOLO%20%2B%20DeepSORT-FF6F00?logo=pytorch&logoColor=white" alt="Vision"></a>
+  <a href="https://github.com/yangzhiyong3508/ESP32"><img src="https://img.shields.io/badge/Camera-ESP32--CAM-000000?logo=espressif&logoColor=white" alt="ESP32"></a>
+  <a href="https://github.com/yangzhiyong3508/edog_project_docker"><img src="https://img.shields.io/badge/Firmware-edog__project-2496ED?logo=docker&logoColor=white" alt="Firmware"></a>
+</p>
+
+<img src="docs/assets/architecture.svg" alt="EDOG architecture" width="920"/>
+
+</div>
+
+---
+
+## ✨ 这是什么？
+
+EDOG 是一套可落地的 **智能四足机器人全栈方案**：手机遥控与陪伴、云端语音与大模型、视觉目标跟随、机载 12 自由度步态控制，贯穿「看见 → 决策 → 运动」闭环。
+
+| 能力 | 一句话 |
+|------|--------|
+| 🎮 遥控 | App 九宫格 / 手柄，经后端下发 IoTDA 命令 |
+| 🗣️ 语音 | 唤醒词、ASR/TTS、扣子 Agent 对话 |
+| 👀 跟随 | CAM 图传 + YOLO/DeepSORT，自动跟目标 |
+| 🦵 步态 | 通晓 RK2206 上 12DOF trot/转向/有限步 |
+| 🔧 调参 | 俯仰、步长步高、速度、舵机中位校准 |
+
+---
+
+## 🧩 仓库地图（Git Submodule）
+
+| 目录 | 仓库 | 角色 |
+|:----:|------|------|
+| 📱 `Application/` | [Application](https://github.com/yangzhiyong3508/Application) | HarmonyOS 手机端 |
+| ☁️ `SpringBoot/` | [SpringBoot](https://github.com/yangzhiyong3508/SpringBoot) | 语音 · IoTDA · 扣子 · 调试台 |
+| 🧠 `DeepLearning/` | [DeepLearning](https://github.com/yangzhiyong3508/DeepLearning) | 检测跟踪与图传转发 |
+| 📷 `ESP32/` | [ESP32](https://github.com/yangzhiyong3508/ESP32) | ESP32-CAM 推流 |
+| 🐕 `Docker_Edog/` | [edog_project_docker](https://github.com/yangzhiyong3508/edog_project_docker) | 狗端固件源码 |
+
+```mermaid
+flowchart LR
+  A[📱 HarmonyOS App] -->|HTTP / WS| B[☁️ Spring Boot]
+  B -->|IoTDA MQTT| E[🐕 通晓 RK2206]
+  C[📷 ESP32-CAM] -->|JPEG WS :8765| D[🧠 YOLO + DeepSORT]
+  D -->|预览 :8766| A
+  D -->|/tracker| B
 ```
-手机 App (HarmonyOS)
-    │  HTTP / WS
-    ▼
-Spring Boot 后端 ──► 华为云 IoTDA / 讯飞 ASR·TTS / 扣子 Agent
-    ▲
-    │ 跟随指令 /tracker
-视觉 PC (YOLO+DeepSORT) ◄── ESP32-CAM JPEG 图传
-    ▲
-    │ MQTT 命令
-狗端固件 edog_project (RK2206 12DOF 步态)
-```
 
-## 子模块结构
+---
 
-| 目录 | 仓库 | 说明 |
-|------|------|------|
-| `Application/` | [Application](https://github.com/yangzhiyong3508/Application) | HarmonyOS 手机端：遥控、陪伴、调参、舵机校准 |
-| `SpringBoot/` | [SpringBoot](https://github.com/yangzhiyong3508/SpringBoot) | 后端：语音、IoTDA 下发、扣子会话、调试台 |
-| `DeepLearning/` | [DeepLearning](https://github.com/yangzhiyong3508/DeepLearning) | 视觉检测跟踪与图传转发（8765/8766） |
-| `ESP32/` | [ESP32](https://github.com/yangzhiyong3508/ESP32) | ESP32-CAM + OV3660 图传固件 |
-| `Docker_Edog/` | [edog_project_docker](https://github.com/yangzhiyong3508/edog_project_docker) | 狗端 `edog_project` 固件源码 |
-
-## 克隆
+## 🚀 快速开始
 
 ```bash
+# 一次拉齐全部子模块
 git clone --recurse-submodules https://github.com/yangzhiyong3508/Edog_powered_by_rk2206.git
 cd Edog_powered_by_rk2206
 
-# 已克隆但未拉子模块时：
+# 若已克隆但子模块是空的
 git submodule update --init --recursive
 ```
 
-## 更新子模块到最新 main
+各端详细步骤见对应目录下的 `README.md` 👇
+
+| 端 | 文档 |
+|----|------|
+| App | [`Application/README.md`](https://github.com/yangzhiyong3508/Application#readme) |
+| 后端 | [`SpringBoot/README.md`](https://github.com/yangzhiyong3508/SpringBoot#readme) |
+| 视觉 | [`DeepLearning/README.md`](https://github.com/yangzhiyong3508/DeepLearning#readme) |
+| 图传 | [`ESP32/README.md`](https://github.com/yangzhiyong3508/ESP32#readme) |
+| 固件 | [`Docker_Edog/README.md`](https://github.com/yangzhiyong3508/edog_project_docker#readme) |
+
+### 更新子模块到最新
 
 ```bash
 git submodule update --remote --merge
@@ -46,20 +87,28 @@ git commit -m "chore: bump submodules"
 git push origin main
 ```
 
-## 安全说明
+---
 
-- **禁止提交密钥**。各子仓均有 `.gitignore`。
-- 后端密钥模板：`SpringBoot/config/application-secrets.example.yaml`
-- 固件本地配置模板：`Docker_Edog/include/edog_config.local.example.h`
-- 模型权重（`.pt`）不入库，见 `DeepLearning/weights/README.md`
+## 🔒 安全提示
 
-## 分支
+- ⛔ **不要提交密钥**（各仓已配置 `.gitignore`）
+- 🔑 后端模板：`SpringBoot/config/application-secrets.example.yaml`
+- 📡 固件模板：`Docker_Edog/include/edog_config.local.example.h`
+- 📦 模型权重 `.pt` 不入库，见 `DeepLearning/weights/README.md`
 
-| 分支 | 说明 |
+---
+
+## 🌿 分支说明
+
+| 分支 | 含义 |
 |------|------|
 | `main` | 当前 monorepo + submodule 架构 |
 | `archive/old-main` | 历史主分支归档 |
 
-## 文档入口
+---
 
-请分别阅读各子仓库 `README.md` 的编译、运行与部署说明。
+<div align="center">
+
+**EDOG** · 通晓 RK2206 · 从感知到运动的完整链路
+
+</div>
