@@ -1,0 +1,15 @@
+[submodule "Application"]
+	path = Application
+	url = https://github.com/yangzhiyong3508/Application.git
+[submodule "SpringBoot"]
+	path = SpringBoot
+	url = https://github.com/yangzhiyong3508/SpringBoot.git
+[submodule "DeepLearning"]
+	path = DeepLearning
+	url = https://github.com/yangzhiyong3508/DeepLearning.git
+[submodule "ESP32"]
+	path = ESP32
+	url = https://github.com/yangzhiyong3508/ESP32.git
+[submodule "Docker_Edog"]
+	path = Docker_Edog
+	url = https://github.com/yangzhiyong3508/edog_project_docker.git

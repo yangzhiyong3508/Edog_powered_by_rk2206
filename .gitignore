@@ -1,0 +1,29 @@
+# Secrets anywhere
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.jks
+*secret*
+*secrets*
+!**/edog_config.local.example.h
+config/application-secrets.yaml
+**/application-secret*.y*ml
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+
+# Build noise (if any local files)
+target/
+build/
+__pycache__/
+node_modules/
+oh_modules/
