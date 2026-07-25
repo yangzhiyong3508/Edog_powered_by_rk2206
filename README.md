@@ -1,6 +1,8 @@
 ﻿# EDOG powered by RK2206
 
-智能四足机器人毕设总仓库（小凌派 **RK2206** + OpenHarmony LiteOS + HarmonyOS App + Spring Boot + 视觉跟随）。
+智能四足机器人毕设总仓库（**软通动力通晓开发板 RK2206** + OpenHarmony LiteOS + HarmonyOS App + Spring Boot + 视觉跟随）。
+
+> 狗端硬件为软通动力（iSoftStone）**通晓**开发板（RK2206），不是小凌派。
 
 ## 系统架构
 
